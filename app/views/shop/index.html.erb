@@ -1,10 +1,26 @@
+
+<h1>List of Categories</h1>
+
+<table>
+  
+ 
+<% @categories.each do |category| %>
+  <tr>
+    <td><%= category.name %></td>
+    <td><%= link_to 'Show', category %></td>
+  </tr>
+<% end %>	
+</table>
+
+
+
 <h1>List of Products</h1>
 
 <table>
   <tr>
     <th>Title</th>
     <th>Price</th>
-    <th></th>
+    <th>Category</th>
     <th></th>
     <th></th>
   </tr>
@@ -13,6 +29,7 @@
   <tr>
     <td><%= product.name %></td>
     <td><%= product.price %></td>
+    <td><%= product.category.name %></td>
     <td><%= link_to 'Show', product %></td>
   </tr>
 <% end %>	
