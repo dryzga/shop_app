@@ -1,0 +1,26 @@
+<h1>Edit of products</h1>
+
+<%= form_for(@product, :url => admin_product_path(@product)) do |f| %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :category_id %><br />
+    <%= collection_select(:product, :category_id, @categories, :id, :name, {:prompt => false }) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', admin_products_path %>
