@@ -4,6 +4,7 @@
 <table>
   
  
+ 
 <% @categories.each do |category| %>
   <tr>
     <td><%= category.name %></td>
@@ -20,7 +21,7 @@
   <tr>
     <th>Title</th>
     <th>Price</th>
-    <th>Category</th>
+    <th>Category</th>.
     <th></th>
     <th></th>
   </tr>
@@ -31,6 +32,7 @@
     <td><%= product.price %></td>
     <td><%= product.category.name %></td>
     <td><%= link_to 'Show', product %></td>
+    <td><%= link_to 'Add to cart',url_for(:action => 'add_cart') %></td>
   </tr>
 <% end %>	
 </table>

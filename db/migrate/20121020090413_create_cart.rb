@@ -1,6 +1,6 @@
 class CreateCart < ActiveRecord::Migration
   def up
-  	create_table :buyer do |t|
+  	create_table :buyers do |t|
       t.string :first_name
       t.string :last_name
       t.timestamps
@@ -10,7 +10,7 @@ class CreateCart < ActiveRecord::Migration
     	t.boolean :confirmed
     	t.timestamps
     end
-    create_table :order_iteam do |t|
+    create_table :order_items do |t|
     	t.integer :order_id
     	t.integer :product_id
     	t.integer :quantity
@@ -19,8 +19,8 @@ class CreateCart < ActiveRecord::Migration
   end
 
   def down
-  	drop_table :buyer
+  	drop_table :buyers
   	drop_table :orders
-  	drop_table :order_iteam
+  	drop_table :order_items
   end
 end

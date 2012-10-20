@@ -58,9 +58,13 @@ ShopApp::Application.routes.draw do
  
  
   resource :shop 
+  resource :order
   resources :products
   resources :categories 
-  match "/products/:id" => "products#show"
+  resources :order_items
+
   match "/categories/:id" => "categories#show"
+  match "/cart/add" => "categories#show"
+  match "/order/:id" => "order#add"
   root :to => 'shop#index'
 end

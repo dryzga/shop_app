@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(:version => 20121020090413) do
 
-  create_table "buyer", :force => true do |t|
+  create_table "buyers", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at", :null => false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20121020090413) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "order_iteam", :force => true do |t|
+  create_table "order_items", :force => true do |t|
     t.integer  "order_id"
     t.integer  "product_id"
     t.integer  "quantity"
