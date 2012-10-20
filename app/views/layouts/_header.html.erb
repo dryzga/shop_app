@@ -11,12 +11,17 @@
   <tr>
     <td><%= order_item.product.name %></td>
     <td><%= order_item.quantity %></td>
-    <td><%= form_tag :controller => :order, :action => :delete, :id => order_item , :confirm => "Really?" do %>
+    <td><%= form_tag :controller => :order, :action => :delete, :id => order_item  do %>
       <%= submit_tag 'Delete' %>
     <% end %>
     </td>
   </tr>
-<% end %> 
+<% end %>
+<tr>
+  	<td><%= form_tag :controller => :order, :action => :checkout do %>
+      <%= submit_tag 'Checkout' %>
+    <% end %>
+  </tr> 
 </table> 
 </div>
 </div>

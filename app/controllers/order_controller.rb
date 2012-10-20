@@ -16,4 +16,17 @@ class OrderController < ApplicationController
 		@orderitem.destroy
 		redirect_to :back
 	end
+
+	def checkout
+    @order = Order.find(@current_cart.id)
+	if @order.order_items.empty?
+      flash[:notice] = 'Empty cart'
+      redirect_to :back
+    else
+    @order.confirmed = true
+    @order.save
+    @current_cart = Order.create(:buyer_id => @current_buyer.id,:confirmed => 'false')
+    redirect_to :back
+    end
+  end
   end
