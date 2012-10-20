@@ -56,15 +56,17 @@ ShopApp::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
  
- 
+  match "/categories/:id" => "categories#show"
+  match 'cart' => "order#index"
+  match 'cart/add/:id' => "order#add"
+  match 'cart/delete/:id' => "order#delete"
+
   resource :shop 
   resource :order
   resources :products
   resources :categories 
   resources :order_items
 
-  match "/categories/:id" => "categories#show"
-  match "/cart/add" => "categories#show"
-  match "/order/:id" => "order#add"
+ 
   root :to => 'shop#index'
 end

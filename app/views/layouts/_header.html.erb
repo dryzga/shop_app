@@ -1,14 +1,22 @@
 <div id="head_bar">
 <div class="wrap">
-<div class="basket">Empty basket</div>
-<%= @current_cart.id%>
-
+<div class="basket">Basket</div>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Quantity</th>
+    <th></th>
+  </tr>
 <% @current_cart.order_items.each do |order_item| %>
   <tr>
     <td><%= order_item.product.name %></td>
     <td><%= order_item.quantity %></td>
-    <td><%= link_to 'Delete', order_item, :method => :delete, :confirm => "Really?" %></td>
+    <td><%= form_tag :controller => :order, :action => :delete, :id => order_item , :confirm => "Really?" do %>
+      <%= submit_tag 'Delete' %>
+    <% end %>
+    </td>
   </tr>
-<% end %>  
+<% end %> 
+</table> 
 </div>
 </div>

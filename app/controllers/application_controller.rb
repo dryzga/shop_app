@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   		session[:buyer_id] = @current_buyer.id
   	end
     @current_cart = @current_buyer.orders.where(:confirmed => 'false').first
-    if @current_cart == []
+    if @current_cart == nil
   		@current_cart = Order.create(:buyer_id => @current_buyer.id,:confirmed => 'false')
   	end
   end

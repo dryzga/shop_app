@@ -5,6 +5,11 @@
   <tr>
     <td> Description : <%= @product.description %></td>
     <td>Price : <%= @product.price %></td>
+    <td>
+    <%= form_tag :controller => :order, :action => :add, :id => product do %>
+      <%= submit_tag 'Add to cart' %>
+    <% end %>
+    </td>
   </tr>
 </table>
  

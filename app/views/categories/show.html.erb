@@ -15,6 +15,11 @@
     <td><%= product.name %></td>
     <td><%= product.price %></td>
     <td><%= link_to 'Show', product %></td>
+    <td>
+    <%= form_tag :controller => :order, :action => :add, :id => product do %>
+      <%= submit_tag 'Add to cart' %>
+    <% end %>
+    </td>
   </tr>
 <% end %> 
 </table>
