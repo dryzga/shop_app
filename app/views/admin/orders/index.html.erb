@@ -1,0 +1,24 @@
+<h1>List of orders</h1>
+
+<table>
+  <tr>
+    <th>Order Id</th>
+    <th>Buyer Id</th>
+    <th>Products</th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.id %></td>
+    <td><%= order.buyer.id %></td>
+    <td>
+    <% order.order_items.each do |order_item| %>
+ <%= order_item.product.name %>
+<%= order_item.quantity %> <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
