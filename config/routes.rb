@@ -1,5 +1,5 @@
 ShopApp::Application.routes.draw do
-  devise_for :users
+ 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -58,6 +58,17 @@ ShopApp::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
  
+
+  scope '/admin' do
+  devise_for :users
+end
+
+  namespace :admin do
+    root :to => 'admin#index'
+    resources :orders
+    resources :categories
+    resources :products
+   end 
   match "/categories/:id" => "categories#show"
   match 'cart' => "order#index"
   match 'cart/add/:id' => "order#add"
