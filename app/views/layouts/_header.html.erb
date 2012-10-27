@@ -1,5 +1,21 @@
 <div id="head_bar">
 <div class="wrap">
+<div class="search">
+    Search: <%= search_form_for Product.search(params[:q]), :url=>search_results_path do |f| %>
+      <%= f.label( :name_cont, "Name") %>
+      <%= f.text_field :name_cont %>
+      <br />
+      <%= f.label( :description_cont, "Description") %>
+      <%= f.text_field :description_cont %>
+      <br />
+      <%= f.label( :price_gteq, "Price from :") %>
+      <%= f.text_field :price_gteq , :style => 'width:70px;' %>
+      <%= f.label( :price_lteq, "Price to :") %>
+      <%= f.text_field :price_lteq, :style => 'width:70px;' %>
+      <br />
+      <%= f.submit "Search" %>
+    <% end %>
+</div>
 <div class="basket">Basket</div>
 <table>
   <tr>

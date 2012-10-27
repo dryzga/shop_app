@@ -75,6 +75,8 @@ end
   match 'cart/delete/:id' => "order#delete"
   match 'cart/checkout' => "order#checkout"
   
+  match 'search/results' => "search#results"
+  
   resource :shop 
   resource :order
   resources :products
